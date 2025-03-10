@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rootify</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    .header { 
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .menu-icon { 
+      font-size: 24px; 
+      cursor: pointer;
+    }
+    
+    .nav { 
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 10px;
+      background-color: #444;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); }
+    .nav a { 
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .nav a:hover {
+      background-color: #666;
+    }
+    
+    .text {
+      padding: 20px;
+    }
+    
+    .logo {
+      font-family: "Arial", sans-serif;
+    }
+    
+    .h {
+      font-weight: bold;
+      font-family: "Arial", sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="logo">Rootify</div>
+  </header>
+
+  <nav class="nav" id="nav-menu">
+    <a href="index.html">Devices</a>
+    <a href="participate.html">How to add devices</a>
+  </nav>
+  
+  <div class="text">
+  <p>We'd like to add more phones by different brands. By reading this you can find out how to participate.</p>
+  
+  <div class="h">
+  <h1>How to add devices</h1>
+  </div>
+  
+  <p>You'll firstly have to add @spinoevrex on discord (Note: This is temporary). Then you'll have to fill out following formular:</p>
+  
+  <ul>
+    <li>Device Name:</li>
+    <li>Display Specs:</li>
+    <li>Processor and RAM:</li>
+    <li>Camera System:</li>
+    <li>Battery and charging:</li>
+    <li>Speakers and Audio</li>
+    <li>IP Rating:</li>
+    <li>SIM and Connectivity:</li>
+    <li>Building materials, weight and thickness:</li>
+    <li>Storage and SD Card slots:</li>
+    <li>Software and software support:</li>
+    <li>Features:</li>
+    <li>Color variants</li>
+    <li>Geekbench, (Antutu) and Forgepoints</li>
+    <li>A picture where the phone is centered, front and backside:</li>
+  </ul>
+  
+  <p>Send the formular after filling it out. Please inform yourself about each topic. Check GSMarena for inspiration.</p>
+  
+  <div class="h">
+  <h1>What do I NOT do?</h1>
+  </div>
+    
+  <p>Don't submit unrealistic specs. Do research. Answer questions if there are any. Don't spam submits. 3 submits a day is okay. Anything above will be ignored. Accept criticism and suggestions. Not following these rules will erase your phones out of the project.</p>
+
+  </div>
+  
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("nav-menu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>

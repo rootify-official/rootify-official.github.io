@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rootify</title>
+  <style>
+    body { 
+      font-family: "Arial", sans-serif;
+      margin: 0; 
+      padding: 0; 
+      background-color: #f5f5f5;
+    }
+  
+    .header { 
+      background-color: #333;
+      color: white; 
+      padding: 15px; 
+      display: flex; 
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .menu-icon { 
+      font-size: 24px; 
+      cursor: pointer;
+    }
+    
+    .nav {
+      display: none;
+      position: absolute; 
+      top: 50px;
+      left: 10px;
+      background-color: #444;
+      border-radius: 8px; 
+      padding: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav a { 
+      display: block; 
+      color: white; 
+      text-decoration: none; 
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .nav a:hover { 
+      background-color: #666; 
+    }
+    
+    .search-container {
+      text-align: center;
+      width: 100%;
+    }
+    
+    .search-input { 
+      padding: 8px; 
+      width: 60%;
+      max-width: 400px;
+      border-radius: 8px; 
+      border: 1px solid #ccc;
+    }
+    
+    .device-container { 
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center;
+      gap: 15px; 
+      padding: 20px; 
+    }
+    
+    .device-card { 
+      background: white;
+      padding: 10px; 
+      width: 200px;
+      text-align: center;
+      border-radius: 10px; 
+      box-shadow: 0 0 5px rgba(0,0,0,0.1); 
+    }
+    
+    .device-card img { 
+      width: 100%;
+      height: auto; 
+      border-radius: 10px; 
+    }
+    
+    .device-card h3 { 
+      font-size: 16px; 
+      margin: 10px 0;
+    }
+    
+    .device-card a { 
+      text-decoration: none; 
+      color: black;
+      display: block;
+      padding: 10px; 
+      background: #888; 
+      border-radius: 5px; 
+      margin-top: 5px;
+    }
+
+    .logo {
+      font-family: "Arial";
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="search-container">
+    <input type="text" class="search-input" id="search" placeholder="Search..." oninput="search()">
+  </div>
+    <div class="logo">Rootify</div>
+  </header>
+
+  <nav class="nav" id="nav-menu">
+    <a href="index.html">Devices</a>
+    <a href="participate.html">How to add devices</a>
+  </nav>
+
+  <div class="device-container" id="device-container">
+    <!-- ADD NEW SMARTPHONES HERE -->
+    <script>
+  const phones = [
+    { name: "Spinache Mobile 3", image: "img/Titelloses 215_20250224211030.jpeg", page: "spinachemobile3.html" },
+    { name: "Spinache Mobile 2 Ultra", image: "img/Titelloses 167_20250204210436.png", page: "spinachemobile2ultra.html" },
+  ];
+
+  function toggleMenu() {
+    const menu = document.getElementById("nav-menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
+
+
+  document.addEventListener("click", function (event) {
+    const menu = document.getElementById("nav-menu");
+    const menuIcon = document.querySelector(".menu-icon");
+    
+    if (menu.style.display === "block" && !menu.contains(event.target) && event.target !== menuIcon) {
+      menu.style.display = "none";
+    }
+  });
+
+  const container = document.getElementById("device-container");
+
+  phones.forEach(phone => {
+    const card = document.createElement("div");
+    card.className = "device-card";
+    card.setAttribute("data-name", phone.name);
+
+    card.innerHTML = `
+      <img src="${phone.image}" alt="${phone.name}">
+      <h3>${phone.name}</h3>
+      <a href="${phone.page}">More details</a>
+    `;
+
+    container.appendChild(card);
+  });
+
+  function search() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const devices = document.querySelectorAll(".device-card");
+    let found = false;
+    const noResultsDiv = document.getElementById("no-results");
+
+    devices.forEach(device => {
+      const name = device.getAttribute("data-name").toLowerCase();
+      if (name.includes(query)) {
+        device.style.display = "block";
+        found = true;
+      } else {
+        device.style.display = "none";
+      }
+    });
+
+    noResultsDiv.style.display = found ? "none" : "block";
+  }
+</script>
+
+<div id="no-results" style="display: none; text-align: center; padding: 20px; font-size: 12px; color: #888;">
+  <p>No results found. Try another search term.</p>
+</div>
+  </div>
+
+</body>
+</html>
