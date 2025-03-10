@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rootify</title>
+<style>
+body {
+font-family: "Arial", sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f5f5f5;
+}
+
+.header {
+background-color: #333;
+color: white;
+padding: 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.menu-icon {
+font-size: 24px;
+cursor: pointer;
+}
+
+.nav {
+display: none;
+position: absolute;
+top: 50px;
+left: 10px;
+background-color: #444;
+border-radius: 8px;
+padding: 10px;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); }
+.nav a {
+display: block;
+color: white;
+text-decoration: none;
+padding: 10px;
+border-radius: 5px;
+}
+
+.nav a:hover {
+background-color: #666;
+}
+
+.logo {
+font-family: "Arial", sans-serif;
+}
+
+.card {
+display: flex;
+background-color: #d6d6d6;
+border-radius: 15px;
+padding: 20px;
+max-width: 600px;
+width: 90%;
+margin: 20px auto;
+gap: 15px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+box-sizing: border-box;
+}
+
+.card img {
+border-radius: 10px;
+width: 50%;
+height: auto;
+object-fit: cover;
+}
+
+.card-content {
+flex: 1;
+}
+
+.card-title {
+font-weight: bold;
+margin-bottom: 8px;
+text-align: left;
+}
+
+.card-list {
+padding-left: 10px;
+text-align: left;
+list-style-type: none;
+padding-left: 0;
+}
+
+@media (max-width: 600px) {
+.card {
+flex-direction: column;
+text-align: left;
+align-items: left;
+}
+
+.card img {
+width: 100%;
+height: auto;
+}
+
+.card-list {
+padding-left: 0;
+}
+}
+
+.list {
+list-style-type: none;
+padding-left: 0;
+}
+
+.link {
+text-decoration: none;
+color: grey;
+}
+
+.link2 {
+text-decoration: none;
+text-align: right;
+color: grey;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+<div class="logo">Rootify</div>
+</header>
+
+<nav class="nav" id="nav-menu">
+<a href="index.html">Devices</a>
+<a href="participate.html">How to add devices</a>
+</nav>
+
+ <div class="card">
+<a href="index.html" class="link2">Back <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+</svg></a>
+  </div>
+  
+<div class="card">
+<img src="placeholder" alt="Picture of the device">
+<div class="card-content">
+<p class="card-title">Velcon Nova X10</p>
+<ul class="card-list">
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"/>
+</svg> 6.7"</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-aspect-ratio" viewBox="0 0 16 16">
+<path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
+<path d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0z"/>
+</svg> 1440p, 120Hz</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+<path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z"/>
+<path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+</svg> 1/1.9", 2160p</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+<path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+</svg> Helix 500</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
+<path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
+</svg> 16GB</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-battery-half" viewBox="0 0 16 16">
+<path d="M2 6h5v4H2z"/>
+<path d="M2 4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm10 1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm4 3a1.5 1.5 0 0 1-1.5 1.5v-3A1.5 1.5 0 0 1 16 8"/>
+</svg> 5600mAh</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
+<path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41z"/>
+</svg> 65W</li>
+<li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wifi" viewBox="0 0 16 16">
+<path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.52.52 0 0 0 .668.05A11.45 11.45 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049"/>
+<path d="M13.229 8.271a.482.482 0 0 0-.063-.745A9.46 9.46 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065m-2.183 2.183c.226-.226.185-.605-.1-.75A6.5 6.5 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.5 5.5 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091zM9.06 12.44c.196-.196.198-.52-.04-.66A2 2 0 0 0 8 11.5a2 2 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z"/>
+</svg> 20W, 10W</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+
+<ul class="list">
+
+<li>Release:</li>
+<ul>
+<li>Announced: 5/3/2025</li>
+<li>Released: 7/3/2025</li>
+</ul>
+<li>Connectivity: LTE/5G</li>
+<li>Display:</li>
+<ul>
+<li>Type: Velcon 2x LTPO OLED</li>
+<li>Size: 6.7"</li>
+<li>Resolution: 1440p</li>
+<li>Refresh rate: 120Hz</li>
+<li>Peak brightness: 3500 nits</li>
+</ul>
+<li>Camera:</li>
+<ul>
+<li>Wide: 50 MP, f/1.7, 23mm, 1/1.9", PDAF, OIS</li>
+<li>Ultrawide: 24 MP, f/2.2, 13mm, 1/2.4", PDAF</li>
+<li>Periscope Telephoto: 200 MP, f/3.5, 211.6mm, 1/2.5", PDAF, OIS, 9.2x Optical Zoom</li>
+<li>Features: Dual Real-Tone Flash</li>
+<li>Video: 4k@24/30/60/120, 1080p@/24/30/60/120/240/480</li>
+</ul>
+<li>Selfie-Camera:</li>
+<ul>
+<li>Wide: 36 MP, f/2.2, 20mm, 1/3.2", PDAF, OIS</li>
+<li>Video: 4k@24/30/60, 1080p@24/30/60</li>
+</ul>
+<li>Chipset: Helix 500</li>
+<li>RAM: 16 GB</li>
+<li>Storage: 256GB/512GB/1TB</li>
+<li>Battery:</li>
+<ul>
+<li>mAh: 5600</li>
+<li>Charging: 65W</li>
+<li>Wireless charging: 20W</li>
+<li>Reverse wireless charging: 10W</li>
+</ul>
+<li>Sound:</li>
+<ul>
+<li>Loudspeaker: Yes, with stereo speakers</li>
+<li>Headphone-Jack: Yes</li>
+</ul>
+<li>Software:</li>
+<ul>
+<li>HelixOS 1</li>
+<li>Software updates: 6 years</li>
+<li>Security updates: 10 years</li>
+</ul>
+<li>Features: Under-display Fingerprint</li>
+<li>Colors: Space-Black, Cosmic White</li>
+<li>Geekbench 6:</li>
+<ul>
+<li>Single-Core: 2553</li>
+<li>Multi-Core: 6841</li>
+</ul>
+<li>ForgePoints: 185</li>
+ <li>Prices:</li>
+ <ul>
+  <li>256GB: 719€</li>
+  <li>512GB: 789€</li>
+  <li>1TB: 839€</li>
+ </ul>
+</ul>
+
+</div>
+
+<div class="card">
+
+<a href="index.html" class="link">Back <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/>
+</svg></a>
+
+</div>
+
+<script>
+function toggleMenu() {
+const menu = document.getElementById("nav-menu");
+menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
