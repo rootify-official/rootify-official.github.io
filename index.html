@@ -11,7 +11,7 @@
       padding: 0; 
       background-color: #f5f5f5;
     }
-  
+
     .header { 
       background-color: #333;
       color: white; 
@@ -20,12 +20,12 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .menu-icon { 
       font-size: 24px; 
       cursor: pointer;
     }
-    
+
     .nav {
       display: none;
       position: absolute; 
@@ -36,7 +36,7 @@
       padding: 10px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     .nav a { 
       display: block; 
       color: white; 
@@ -44,16 +44,16 @@
       padding: 10px;
       border-radius: 5px;
     }
-    
+
     .nav a:hover { 
       background-color: #666; 
     }
-    
+
     .search-container {
       text-align: center;
       width: 100%;
     }
-    
+
     .search-input { 
       padding: 8px; 
       width: 60%;
@@ -61,7 +61,7 @@
       border-radius: 8px; 
       border: 1px solid #ccc;
     }
-    
+
     .device-container { 
       display: flex;
       flex-wrap: wrap; 
@@ -69,7 +69,7 @@
       gap: 15px; 
       padding: 20px; 
     }
-    
+
     .device-card { 
       background: white;
       padding: 10px; 
@@ -77,28 +77,22 @@
       text-align: center;
       border-radius: 10px; 
       box-shadow: 0 0 5px rgba(0,0,0,0.1); 
+      cursor: pointer;
     }
-    
+
+    .device-card:hover {
+      background-color: #eee;
+    }
+
     .device-card img { 
       width: 100%;
       height: auto; 
       border-radius: 10px; 
     }
-    
+
     .device-card h3 { 
       font-size: 16px; 
       margin: 10px 0;
-      bottom: 0;
-    }
-    
-    .device-card a { 
-      text-decoration: none; 
-      color: black;
-      display: block;
-      padding: 10px; 
-      background: #D3D3D3; 
-      border-radius: 5px; 
-      margin-top: 5px;
       bottom: 0;
     }
 
@@ -112,8 +106,8 @@
   <header class="header">
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
     <div class="search-container">
-    <input type="text" class="search-input" id="search" placeholder="Search..." oninput="search()">
-  </div>
+      <input type="text" class="search-input" id="search" placeholder="Search..." oninput="search()">
+    </div>
     <div class="logo">Rootify</div>
   </header>
 
@@ -122,75 +116,73 @@
     <a href="participate.html">How to add devices</a>
   </nav>
 
-  <div class="device-container" id="device-container">
-    <!-- ADD NEW SMARTPHONES HERE -->
-    <script>
-  const phones = [
-    { name: "Spinache Mobile 3", image: "img/Titelloses 215_20250224211030.jpeg", page: "spinachemobile3.html" },
-    { name: "Spinache Mobile 2 Ultra", image: "img/Titelloses 167_20250204210436.jpeg", page: "spinachemobile2ultra.html" },
-    { name: "Phoyo Trowophone Q1", image: "img/Untitled4_20250310193534.jpeg", page: "phoyotrowophoneq1.html" },
-    { name: "Velcon Nova X10", image: "img/Untitled367_20250310184844.jpeg", page: "novax10.html" },
-    { name: "Spinache Mobile 2 Pro", image: "img/Titelloses 165_20250124210742.jpeg", page: "spinachemobile2pro.html" },
-    { name: "Velcon Neo 2", image: "img/Untitled334_20250310194037.jpeg", page: "velconneo2.html" },
-    { name: "Spinache Mobile 2", image: "img/Titelloses 150_20250117121500.png", page: "spinachemobile2.html" },
-    { name: "Spinache Mobile 1 Dream", image: "img/Titelloses 112_20241227191738.jpeg", page: "spinachemobile1dream.html" },
-    { name: "Spinache Tab 1 Pro", image: "img/Titelloses 109_20241227175141.jpeg", page: "spinachetab1pro.html" },
-  ];
+  <div class="device-container" id="device-container"></div>
 
-  function toggleMenu() {
-    const menu = document.getElementById("nav-menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  }
+  <script>
+    const phones = [
+      { name: "Spinache Mobile 3", image: "img/Titelloses 215_20250224211030.jpeg", page: "spinachemobile3.html" },
+      { name: "Spinache Mobile 2 Ultra", image: "img/Titelloses 167_20250204210436.jpeg", page: "spinachemobile2ultra.html" },
+      { name: "Phoyo Trowophone Q1", image: "img/Untitled4_20250310193534.jpeg", page: "phoyotrowophoneq1.html" },
+      { name: "Velcon Nova X10", image: "img/Untitled367_20250310184844.jpeg", page: "novax10.html" },
+      { name: "Spinache Mobile 2 Pro", image: "img/Titelloses 165_20250124210742.jpeg", page: "spinachemobile2pro.html" },
+      { name: "Velcon Neo 2", image: "img/Untitled334_20250310194037.jpeg", page: "velconneo2.html" },
+      { name: "Spinache Mobile 2", image: "img/Titelloses 150_20250117121500.png", page: "spinachemobile2.html" },
+      { name: "Spinache Mobile 1 Dream", image: "img/Titelloses 112_20241227191738.jpeg", page: "spinachemobile1dream.html" },
+      { name: "Spinache Tab 1 Pro", image: "img/Titelloses 109_20241227175141.jpeg", page: "spinachetab1pro.html" },
+    ];
 
-
-  document.addEventListener("click", function (event) {
-    const menu = document.getElementById("nav-menu");
-    const menuIcon = document.querySelector(".menu-icon");
-    
-    if (menu.style.display === "block" && !menu.contains(event.target) && event.target !== menuIcon) {
-      menu.style.display = "none";
+    function toggleMenu() {
+      const menu = document.getElementById("nav-menu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
-  });
 
-  const container = document.getElementById("device-container");
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("nav-menu");
+      const menuIcon = document.querySelector(".menu-icon");
 
-  phones.forEach(phone => {
-    const card = document.createElement("div");
-    card.className = "device-card";
-    card.setAttribute("data-name", phone.name);
-
-    card.innerHTML = `
-      <img src="${phone.image}" alt="${phone.name}">
-      <h3>${phone.name}</h3>
-      <a href="${phone.page}">More details</a>
-    `;
-
-    container.appendChild(card);
-  });
-
-  function search() {
-    const query = document.getElementById("search").value.toLowerCase();
-    const devices = document.querySelectorAll(".device-card");
-    let found = false;
-    const noResultsDiv = document.getElementById("no-results");
-
-    devices.forEach(device => {
-      const name = device.getAttribute("data-name").toLowerCase();
-      if (name.includes(query)) {
-        device.style.display = "block";
-        found = true;
-      } else {
-        device.style.display = "none";
+      if (menu.style.display === "block" && !menu.contains(event.target) && event.target !== menuIcon) {
+        menu.style.display = "none";
       }
     });
 
-    noResultsDiv.style.display = found ? "none" : "block";
-  }
-</script>
+    const container = document.getElementById("device-container");
 
-<div id="no-results" style="display: none; text-align: center; padding: 20px; font-size: 12px; color: #888;">
-  <p>No results found. Try another search term.</p>
-</div>
+    phones.forEach(phone => {
+      const card = document.createElement("div");
+      card.className = "device-card";
+      card.setAttribute("data-name", phone.name);
+      card.onclick = () => window.location.href = phone.page;
+
+      card.innerHTML = `
+        <img src="${phone.image}" alt="${phone.name}">
+        <h3>${phone.name}</h3>
+      `;
+
+      container.appendChild(card);
+    });
+
+    function search() {
+      const query = document.getElementById("search").value.toLowerCase();
+      const devices = document.querySelectorAll(".device-card");
+      let found = false;
+      const noResultsDiv = document.getElementById("no-results");
+
+      devices.forEach(device => {
+        const name = device.getAttribute("data-name").toLowerCase();
+        if (name.includes(query)) {
+          device.style.display = "block";
+          found = true;
+        } else {
+          device.style.display = "none";
+        }
+      });
+
+      noResultsDiv.style.display = found ? "none" : "block";
+    }
+  </script>
+
+  <div id="no-results" style="display: none; text-align: center; padding: 20px; font-size: 12px; color: #888;">
+    <p>No results found. Try another search term.</p>
   </div>
 
 </body>
